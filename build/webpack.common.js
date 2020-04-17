@@ -1,5 +1,5 @@
 const utils = require('./utils')
-const config = require('./config')
+const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')

@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
-const config = require('./config')
+const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -9,7 +9,7 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const allSource = [resolve('src'), resolve('packages')]
+const allSource = [resolve('src'), resolve('packages'), resolve('example')]
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -24,7 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', 'ts'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      '@': resolve('example'),
     }
   },
   module: {
