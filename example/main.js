@@ -1,13 +1,14 @@
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
+
+import Veer from '../src/index'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+Vue.use(Veer)
+
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

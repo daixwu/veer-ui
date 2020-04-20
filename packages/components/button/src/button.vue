@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'button'
+  name: 'veer-button'
 }
 </script>

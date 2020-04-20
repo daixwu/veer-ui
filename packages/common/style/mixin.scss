@@ -44,6 +44,21 @@
   }
 }
 
+@mixin border-none(){
+  &::before {
+    display: none;
+  }
+  &::after {
+    display: none;
+  }
+}
+
+@mixin flex-fix(){
+  flex: 1;
+  flex-basis: 0.000000001px;
+  width: 1%;
+}
+
 @mixin multiEllipsis($line:2){
   overflow : hidden;
   word-break: break-all;

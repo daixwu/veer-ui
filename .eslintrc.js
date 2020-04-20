@@ -1,19 +1,17 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
-  parserOptions: {
-    parser: 'babel-eslint'
+  "root": true,
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceMap": "module",
+    "ecmaVersion": 7
   },
-  env: {
-    browser: true,
+  "env": {
+    "node": true,
+    "browser": true
   },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
+  "extends": [
+    "plugin:vue/essential",
+    "standard"
   ],
   // required to lint *.vue files
   plugins: [
@@ -21,9 +19,12 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    "space-before-function-paren": "off", // 关闭函数函数声明在小括号前必须加空格的规则
+    "no-trailing-spaces": "off", // 关闭禁用行尾空格
+    "eol-last": "off", // 关闭要求或禁止文件末尾存在空行
+    "comma-dangle": "warn", // 出现拖尾逗号仅反馈警告，而不是报错
+    "no-async-promise-executor": "off",
+    "no-misleading-character-class": "off",
+    "no-useless-catch": "off"
   }
 }
