@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Button from '../views/button.vue'
 import Radio from '../views/radio.vue'
 import RadioGroup from '../views/radio-group.vue'
+import Video from '../views/video.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/RadioGroup',
     name: 'RadioGroup',
     component: RadioGroup
+  },
+  {
+    path: '/Video',
+    name: 'Video',
+    component: Video
   }
   // {
   //   path: '/Button',

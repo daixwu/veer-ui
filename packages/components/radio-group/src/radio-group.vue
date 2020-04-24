@@ -20,11 +20,6 @@ const EVENT_INPUT = 'input'
 
 export default {
   name: 'veer-radio-group',
-  provide() {
-    return {
-      radioGroup: this
-    }
-  },
   props: {
     value: [String, Number],
     options: {

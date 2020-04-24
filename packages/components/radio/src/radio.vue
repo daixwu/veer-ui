@@ -23,11 +23,6 @@ const EVENT_INPUT = 'input'
 
 export default {
   name: 'veer-radio',
-  inject: {
-    radioGroup: {
-      default: null
-    }
-  },
   props: {
     value: [String, Number],
     option: {
@@ -50,24 +45,6 @@ export default {
       radioValue: this.value
     }
   },
-  created() {
-    const radioGroup = this.radioGroup
-    if (radioGroup && radioGroup.radioValue) {
-      this.radioValue = radioGroup.radioValue
-      this._cancelWatchGroup = this.$watch(
-        () => {
-          return radioGroup.radioValue
-        },
-        newValue => {
-          this.radioValue = newValue
-        }
-      )
-    }
-  },
-  beforeDestroy() {
-    this._cancelWatchGroup && this._cancelWatchGroup()
-    this._cancelWatchGroup = null
-  },
   watch: {
     value(newV) {
       this.radioValue = newV
@@ -77,9 +54,6 @@ export default {
         newV = Number(newV)
       }
       this.$emit(EVENT_INPUT, newV)
-      if (this.radioGroup) {
-        this.radioGroup.radioValue = newV
-      }
     }
   },
   computed: {

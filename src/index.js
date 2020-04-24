@@ -3,9 +3,10 @@ import Button from '../packages/components/button'
 import Radio from '../packages/components/radio'
 import RadioGroup from '../packages/components/radio-group'
 import Input from '../packages/components/input'
+import Video from '../packages/components/video'
 
 // 组件库导入
-const components = [Button, Radio, RadioGroup, Input]
+const components = [Button, Radio, RadioGroup, Input, Video]
 
 const install = function(Vue) {
   // 判断是否安装
@@ -25,7 +26,8 @@ export default {
   Button,
   Radio,
   RadioGroup,
-  Input
+  Input,
+  Video
 }
 
 // 单个组件可以直接这样导出

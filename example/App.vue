@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Button</router-link> |
       <router-link to="/radio">Radio</router-link> |
-      <router-link to="/RadioGroup">RadioGroup</router-link>
+      <router-link to="/RadioGroup">RadioGroup</router-link> |
+      <router-link to="/Video">Video</router-link>
     </div>
     <router-view/>
   </div>
