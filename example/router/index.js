@@ -9,13 +9,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Button',
+    path: '/button',
     component: Button
   },
   {
-    path: '/Radio',
-    name: 'Radio',
+    path: '/radio',
     component: Radio
   },
   {
@@ -24,8 +22,7 @@ const routes = [
     component: RadioGroup
   },
   {
-    path: '/Video',
-    name: 'Video',
+    path: '/video',
     component: Video
   }
   // {

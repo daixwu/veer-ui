@@ -1,10 +1,15 @@
 <template>
-  <div class="input-demo">
-    <veer-input v-model="value" ref="input"></veer-input>
-  </div>
+  <veer-page
+    title="Button">
+      <div slot="content">
+        <veer-input v-model="value" ref="input"></veer-input>
+      </div>
+  </veer-page>
 </template>
 
 <script>
+import VeerPage from '../components/veer-page.vue'
+
 export default {
   data() {
     return {
@@ -12,7 +17,10 @@ export default {
     }
   },
   mounted() {
-    this.$refs.input.focus()
+    // this.$refs.input.focus()
+  },
+  components: {
+    VeerPage
   }
 }
 </script>
