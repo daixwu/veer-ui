@@ -2,7 +2,7 @@
   <div class="veer-page" :class="type">
     <header class="header">
       <h1>{{title}}</h1>
-      <i @click="back" class="veer-icon-left"></i>
+      <i @click="back" class="veer-icon-left veer-back"></i>
     </header>
     <div class="wrapper">
       <section v-show="desc" class="desc"><slot name="desc">{{desc}}</slot></section>
@@ -65,6 +65,13 @@ export default {
       h1 {
         font-size: 16px;
         font-weight: 700;
+      }
+      .veer-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 15px;
+        color: #fc9153;
       }
     }
     >.wrapper {
