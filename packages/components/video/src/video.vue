@@ -16,9 +16,9 @@
       :loop="options.loop"
       :poster="options.cover"
       :style="{objectFit:`${options.objectFit}`}">
-      <source v-for="source in sources" :src="source.src" :type="source.type ? source.type : 'video/mp4'" :key="source.src" />
+      <source v-for="(item, index) in vUrl" :src="item" :type="`video/${getUrlType(item)}`" :key="index" />
     </video>
-    <slot>
+    <slot name="knob">
       <div class="playing-mask" @click="play" v-show="options.disabled"></div>
       <div
         class="veer-play-btn"
@@ -38,30 +38,27 @@
 export default {
   name: 'veer-video',
   props: {
-    sources: {
-      type: Array,
-      required: true
-    },
-    options: {
+    video: {
       type: Object,
-      required: true,
       default() {
-        return {
-          cover: '',
-          autoplay: false,
-          poster: '',
-          loop: false,
-          controls: false,
-          muted: false,
-          disabled: true,
-          playsinline: false,
-          objectFit: ''
-        }
+        return {}
       }
     }
   },
   data() {
     return {
+      baseVideo: {
+        url: '',
+        cover: '',
+        poster: '',
+        autoplay: false,
+        loop: false,
+        controls: false,
+        muted: false,
+        disabled: true,
+        playsInline: false,
+        objectFit: 'cover'
+      },
       $video: null,
       currentTime: 0,
       isStart: false,
@@ -70,29 +67,40 @@ export default {
     }
   },
   watch: {
-    sources: {
+    vUrl: {
       handler(newValue, oldValue) {
         if (newValue && oldValue && newValue !== oldValue) {
           this.$nextTick(() => {
             this.$video.load()
             this.isPlaying = false
+            this.isStart = false
           })
         }
       },
       immediate: true
     }
   },
+  computed: {
+    vUrl() {
+      let url = this.options.url || []
+      if (typeof url === 'string') {
+        url = [url]
+      } else if (Object.prototype.toString.call(url) === '[object Object]') {
+        console.warn(new Error('视频URL只接受String或者Array'))
+        return []
+      }
+      return url
+    },
+    options() {
+      return Object.assign({}, this.baseVideo, this.video)
+    }
+  },
   mounted() {
     this.init()
   },
   methods: {
-    play() {
-      this.isPlaying = !this.isPlaying
-      this._togglePlay()
-    },
-    retry() {
-      this.isError = false
-      this.init()
+    getUrlType(url) {
+      return url.match(/[^\\.]+$/)
     },
     init() {
       this.$video = this.$refs.video
@@ -101,7 +109,7 @@ export default {
         this.play()
       }
 
-      if (this.options.playsinline) {
+      if (this.options.playsInline) {
         this._playInline()
       }
 
@@ -115,6 +123,14 @@ export default {
       this.$video.addEventListener('pause', () => {
         this.$emit('pause', this.$video)
       })
+    },
+    play() {
+      this.isPlaying = !this.isPlaying
+      this._togglePlay()
+    },
+    retry() {
+      this.isError = false
+      this.init()
     },
     getPlayTime() {
       const currentTime = this.$video.currentTime
@@ -136,18 +152,20 @@ export default {
       this.$video.setAttribute('x5-video-player-fullscreen', false)
     },
     _togglePlay() {
-      if (this.isPlaying) {
-        try {
-          this.$video.play()
-          if (!this.isStart) {
-            this._isStartFn()
+      if (this.$video) {
+        if (this.isPlaying) {
+          try {
+            this.$video.play()
+            if (!this.isStart) {
+              this._isStartFn()
+            }
+            this.$video.addEventListener('ended', this._playEndFn)
+          } catch (e) {
+            this._handleError()
           }
-          this.$video.addEventListener('ended', this._playEndFn)
-        } catch (e) {
-          this._handleError()
+        } else {
+          this.$video.pause()
         }
-      } else {
-        this.$video.pause()
       }
     },
     _isStartFn() {
@@ -163,7 +181,7 @@ export default {
       this.$video.currentTime = 0
       this.isStart = false
       this.isPlaying = false
-      this.$emit('playend', this.videoElm)
+      this.$emit('playEnd', this.videoElm)
     },
     _handleError() {
       this.isError = true

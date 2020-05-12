@@ -9,7 +9,7 @@ module.exports = {
   sections: [
     {
       name: '视频 Video',
-      content: 'packages/components/video/README.md',
+      content: 'packages/components/video/doc.md',
     },
     {
       name: '单选框 Radio',

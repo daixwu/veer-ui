@@ -62,7 +62,7 @@ export default {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       z-index: 5;
-      h1 {
+      h1{
         font-size: 16px;
         font-weight: 700;
       }
@@ -71,13 +71,15 @@ export default {
         top: 0;
         left: 0;
         padding: 0 15px;
-        color: #fc9153;
+        color: #ff64a8;
       }
     }
     >.wrapper {
       height: calc(100% - 44px);
       overflow-x: hidden;
       overflow-y: auto;
+      color: #444;
+      text-align: left;
       // -webkit-overflow-scrolling: touch;
       .desc {
         padding: 10px;
@@ -87,6 +89,17 @@ export default {
       }
       .content {
         margin: 10px;
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+          text-align: left;
+          padding: 20px 0 10px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 18px;
+          padding-bottom: 10px;
+        }
       }
     }
     &.option-demo {
