@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Icon from '../views/icon.vue'
 import Button from '../views/button.vue'
+import Input from '../views/input.vue'
+import Switch from '../views/switch.vue'
 import Radio from '../views/radio.vue'
 import RadioGroup from '../views/radio-group.vue'
 import Video from '../views/video.vue'
@@ -9,8 +12,20 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/icon',
+    component: Icon
+  },
+  {
     path: '/button',
     component: Button
+  },
+  {
+    path: '/input',
+    component: Input
+  },
+  {
+    path: '/switch',
+    component: Switch
   },
   {
     path: '/radio',

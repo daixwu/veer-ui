@@ -1,5 +1,6 @@
 <template>
   <veer-page
+    type="video-view"
     title="Video">
     <div slot="content">
       <h2>基本用法：</h2>
@@ -70,6 +71,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.video-view {
+  .content {
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
+  }
   .video-content {
     width: 100%;
     height: 180px;
@@ -84,4 +93,5 @@ export default {
     text-align: center;
     line-height: 30px;
   }
+}
 </style>

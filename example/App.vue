@@ -4,8 +4,11 @@
       <h1>veer-ui</h1>
     </header>
     <section class="cube-content" ref="mfct">
+      <router-link to="/icon">Icon</router-link>
       <router-link to="/button">Button</router-link>
       <router-link to="/video">Video</router-link>
+      <router-link to="/input">Input</router-link>
+      <router-link to="/switch">Switch</router-link>
     </section>
     <veer-view></veer-view>
   </div>
@@ -56,5 +59,9 @@ export default {
   bottom: 0;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  a {
+    display: block;
+    padding: 10px;
+  }
 }
 </style>

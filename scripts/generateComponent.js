@@ -13,12 +13,12 @@ process.stdin.on('data', async (chunk) => {
   //  组件目录路径
   const componentDirectory = resolve('../packages/components', inputName)
   const entryFile = resolve(componentDirectory, 'index.js')
-  const readmeFile = resolve(componentDirectory, 'README.md')
+  const readmeFile = resolve(componentDirectory, 'doc.md')
 
   // src 目录路径
   const srcDirectory = resolve('../packages/components', inputName, 'src')
   const vueFile = resolve(srcDirectory, `${inputName}.vue`)
-  const styleFile = resolve(srcDirectory, 'style.scss')
+  const styleFile = resolve(srcDirectory, `${inputName}.scss`)
 
   // stories 目录路径
   // const storiesDirectory = resolve('../packages/components', inputName, 'stories')

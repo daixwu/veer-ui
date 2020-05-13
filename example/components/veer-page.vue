@@ -95,11 +95,6 @@ export default {
           text-align: left;
           padding: 20px 0 10px;
         }
-        p {
-          font-size: 14px;
-          line-height: 18px;
-          padding-bottom: 10px;
-        }
       }
     }
     &.option-demo {
@@ -113,30 +108,6 @@ export default {
         padding: 15px;
         border-bottom: 1px solid rgba(0, 0, 0, .1);
         margin-bottom: 15px;
-      }
-      .options {
-        margin-bottom: 15px;
-      }
-      .option-list {
-        .group {
-          margin-bottom: 15px;
-          border: 1px solid rgba(0, 0, 0, .1);
-          border-radius: 14px;
-        }
-        .item {
-          height: 52px;
-          border-bottom: 1px solid rgba(0, 0, 0, .1);
-          &.sub {
-            font-size: 14px;
-            background-color: rgba(74, 76, 91, 0.8);
-            &.first {
-              box-shadow: 0 1px 1px 1px #eee inset;
-            }
-            &.last {
-              border-bottom: none;
-            }
-          }
-        }
       }
       .demo {
         margin-bottom: 15px;

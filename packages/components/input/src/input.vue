@@ -15,9 +15,11 @@
       :autofocus="autofocus"
       @focus="handleFocus"
       @blur="handleBlur"
-      @change="changeHander"
     >
-    <div class="veer-input-append" v-if="$slots.append">
+    <div class="veer-input-append" v-if="$slots.append  || _showClear">
+      <div class="veer-input-clear" v-if="_showClear" @touchend="handleClear">
+        <i class="veer-icon-close"></i>
+      </div>
       <slot name="append"></slot>
     </div>
   </div>
@@ -64,12 +66,20 @@ export default {
     min: Number,
     max: Number,
     step: Number,
-    tabindex: String
+    tabindex: String,
+    clearable: {
+      type: [Boolean, Object],
+      default: false
+    }
   },
   data() {
     return {
       inputValue: this.value,
-      isFocus: false
+      isFocus: false,
+      formatedClearable: {
+        visible: false,
+        blurHidden: true
+      }
     }
   },
   computed: {
@@ -79,6 +89,13 @@ export default {
         return 'text'
       }
       return type
+    },
+    _showClear() {
+      let visible = this.formatedClearable.visible && this.inputValue && !this.readonly && !this.disabled
+      if (this.formatedClearable.blurHidden && !this.isFocus) {
+        visible = false
+      }
+      return visible
     }
   },
   watch: {
@@ -87,9 +104,23 @@ export default {
     },
     inputValue(newValue) {
       this.$emit(EVENT_INPUT, newValue)
+    },
+    clearable: {
+      handler() {
+        this.formatClearable()
+      },
+      deep: true,
+      immediate: true
     }
   },
   methods: {
+    formatClearable() {
+      if (typeof this.clearable === 'boolean') {
+        this.formatedClearable.visible = this.clearable
+      } else {
+        Object.assign(this.formatedClearable, this.clearable)
+      }
+    },
     handleFocus(e) {
       this.$emit(EVENT_FOCUS, e)
       this.isFocus = true
@@ -97,6 +128,10 @@ export default {
     handleBlur(e) {
       this.$emit(EVENT_BLUR, e)
       this.isFocus = false
+    },
+    handleClear(e) {
+      this.inputValue = ''
+      this.$refs.input.focus()
     }
   }
 }
