@@ -36,8 +36,8 @@ export default class ${componentName} extends Vue {
   entryTemplate: (componentName, inputName) => {
     console.log('inputName: ', inputName)
 
-    return `import ${componentName} from './src/${inputName}.vue'
-import './src/${inputName}.scss'
+    return `import ${componentName} from './${inputName}.vue'
+import './${inputName}.scss'
 
 ${componentName}.install = (Vue) => {
   Vue.component(${componentName}.name, ${componentName})
@@ -47,8 +47,8 @@ export default ${componentName}
 `
   },
   storiesTemplate: (componentName, inputName) => {
-    return `import ${componentName} from '../src/${inputName}.vue'
-import '../src/${inputName}.scss'
+    return `import ${componentName} from '../${inputName}.vue'
+import '../${inputName}.scss'
 
 export const Default = () => ({
   components: { ${componentName} },

@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const chalk = require('chalk')
 const fs = require('fs')
 const logSymbols = require('log-symbols')
@@ -14,6 +14,8 @@ const mkDirs = (directory, callback) => {
     })
   }
 }
+
+const errorLog = (error) => console.log(logSymbols.error, chalk.red(`${error}`))
 
 module.exports = {
   resolve: (...file) => path.resolve(__dirname, ...file),
@@ -50,4 +52,4 @@ module.exports = {
     item = item.toString().toLocaleLowerCase()
     return item.substr(0, 1).toUpperCase() + item.substr(1)
   }
-};
+}

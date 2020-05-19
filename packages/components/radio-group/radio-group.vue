@@ -14,7 +14,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-import veerRadio from '../../radio/src/radio.vue'
+import veerRadio from '../radio/radio.vue'
 
 const EVENT_INPUT = 'input'
 

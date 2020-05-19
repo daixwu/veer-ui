@@ -26,7 +26,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import inputMixin from '../../../common/mixins/input'
+import inputMixin from '../../common/mixins/input'
 const EVENT_INPUT = 'input'
 const EVENT_BLUR = 'blur'
 const EVENT_FOCUS = 'focus'

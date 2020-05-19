@@ -7,6 +7,7 @@ import Switch from '../views/switch.vue'
 import Radio from '../views/radio.vue'
 import RadioGroup from '../views/radio-group.vue'
 import Video from '../views/video.vue'
+import Flex from '../views/flex.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,10 @@ const routes = [
   {
     path: '/video',
     component: Video
+  },
+  {
+    path: '/Flex',
+    component: Flex
   }
   // {
   //   path: '/Button',

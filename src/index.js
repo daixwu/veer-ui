@@ -1,5 +1,7 @@
 import Style from '../packages/components/Style'
 import Icon from '../packages/components/icon'
+import Flex from '../packages/components/flex'
+import FlexItem from '../packages/components/flex-item'
 import Button from '../packages/components/button'
 import Radio from '../packages/components/radio'
 import RadioGroup from '../packages/components/radio-group'
@@ -8,7 +10,7 @@ import Switch from '../packages/components/switch'
 import Video from '../packages/components/video'
 
 // 组件库导入
-const components = [Icon, Button, Radio, RadioGroup, Input, Switch, Video]
+const components = [Icon, Flex, FlexItem, Button, Radio, RadioGroup, Input, Switch, Video]
 
 const install = function(Vue) {
   // 判断是否安装
@@ -26,6 +28,8 @@ export default {
   install,
   Style,
   Icon,
+  Flex,
+  FlexItem,
   Button,
   Radio,
   RadioGroup,

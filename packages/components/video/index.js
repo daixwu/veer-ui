@@ -1,5 +1,5 @@
-import Video from './src/video.vue'
-import './src/video.scss'
+import Video from './video.vue'
+import './video.scss'
 
 Video.install = (Vue) => {
   Vue.component(Video.name, Video)

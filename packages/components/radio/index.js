@@ -1,5 +1,5 @@
-import Radio from './src/radio.vue'
-import './src/style.scss'
+import Radio from './radio.vue'
+import './radio.scss'
 
 Radio.install = (Vue) => {
   Vue.component(Radio.name, Radio)

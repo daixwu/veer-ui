@@ -4,11 +4,7 @@
       <h1>veer-ui</h1>
     </header>
     <section class="cube-content" ref="mfct">
-      <router-link to="/icon">Icon</router-link>
-      <router-link to="/button">Button</router-link>
-      <router-link to="/video">Video</router-link>
-      <router-link to="/input">Input</router-link>
-      <router-link to="/switch">Switch</router-link>
+      <router-link v-for="(item, index) in components" :key="index" :to="item.path">{{ item.name }}</router-link>
     </section>
     <veer-view></veer-view>
   </div>
@@ -18,7 +14,36 @@
 import VeerView from './components/veer-view.vue'
 
 export default {
-
+  data() {
+    return {
+      components: [
+        {
+          path: '/icon',
+          name: 'Icon'
+        },
+        {
+          path: '/button',
+          name: 'Button'
+        },
+        {
+          path: '/video',
+          name: 'Video'
+        },
+        {
+          path: '/input',
+          name: 'Input'
+        },
+        {
+          path: '/switch',
+          name: 'Switch'
+        },
+        {
+          path: '/flex',
+          name: 'Flex'
+        }
+      ]
+    }
+  },
   components: {
     VeerView
   }

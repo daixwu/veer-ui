@@ -1,11 +1,9 @@
-module.exports = {
-  vueTemplate: (componentName) => {
-    return `<template>
+<template>
   <veer-page
-    type="${componentName}-view"
-    title="${componentName}">
+    type="upload-view"
+    title="upload">
     <div slot="content">
-      <veer-${componentName}></veer-${componentName}>
+      <veer-upload></veer-upload>
     </div>
   </veer-page>
 </template>
@@ -25,10 +23,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.${componentName}-view {
+.upload-view {
 
 }
 </style>
-`
-  }
-}

@@ -16,9 +16,9 @@ process.stdin.on('data', async (chunk) => {
   const readmeFile = resolve(componentDirectory, 'doc.md')
 
   // src 目录路径
-  const srcDirectory = resolve('../packages/components', inputName, 'src')
-  const vueFile = resolve(srcDirectory, `${inputName}.vue`)
-  const styleFile = resolve(srcDirectory, `${inputName}.scss`)
+  // const srcDirectory = resolve('../packages/components', inputName, 'src')
+  const vueFile = resolve(componentDirectory, `${inputName}.vue`)
+  const styleFile = resolve(componentDirectory, `${inputName}.scss`)
 
   // stories 目录路径
   // const storiesDirectory = resolve('../packages/components', inputName, 'stories')
@@ -28,8 +28,8 @@ process.stdin.on('data', async (chunk) => {
     errorLog(`${inputName}组件目录已存在，请重新输入`)
     return
   } else {
-    log(`正在生成 src 目录 ${srcDirectory}`)
-    await dotExistDirectoryCreate(srcDirectory)
+    log(`正在生成 src 目录 ${componentDirectory}`)
+    await dotExistDirectoryCreate(componentDirectory)
     // log(`正在生成 stories 目录 ${storiesDirectory}`)
     // await dotExistDirectoryCreate(storiesDirectory)
   }

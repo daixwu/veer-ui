@@ -1,5 +1,6 @@
-@import "../../../common/style/variable.scss";
-@import "../../../common/style/mixin.scss";
+@import "../../common/style/variable.scss";
+@import "../../common/style/mixin.scss";
+@import "../radio/radio.scss";
 
 .veer-radio-group {
   z-index: 1;
