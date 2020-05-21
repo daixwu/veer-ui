@@ -8,9 +8,10 @@ import RadioGroup from '../packages/components/radio-group'
 import Input from '../packages/components/input'
 import Switch from '../packages/components/switch'
 import Video from '../packages/components/video'
+import Upload from '../packages/components/upload'
 
 // 组件库导入
-const components = [Icon, Flex, FlexItem, Button, Radio, RadioGroup, Input, Switch, Video]
+const components = [Icon, Flex, FlexItem, Button, Radio, RadioGroup, Input, Switch, Video, Upload]
 
 const install = function(Vue) {
   // 判断是否安装
@@ -35,7 +36,8 @@ export default {
   RadioGroup,
   Input,
   Switch,
-  Video
+  Video,
+  Upload
 }
 
 // 单个组件可以直接这样导出

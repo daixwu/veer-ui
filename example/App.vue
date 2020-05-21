@@ -40,6 +40,10 @@ export default {
         {
           path: '/flex',
           name: 'Flex'
+        },
+        {
+          path: '/upload',
+          name: 'Upload'
         }
       ]
     }

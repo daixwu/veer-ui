@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       touchIndex: '',
-      icons: ['home', 'sort', 'full', 'more', 'round-add', 'round-close', 'round-check', 'round-right', 'info', 'question', 'time', 'smiling', 'play', 'stop', 'location', 'load', 'crown', 'hot', 'press', 'huadong', 'qrcode', 'picture', 'magic', 'add', 'praise', 'favor', 'comment', 'down', 'left', 'right', 'check', 'close', 'music-on', 'music-off', 'sound-on', 'sound-off', 'voice', 'tag', 'round', 'scan']
+      icons: ['home', 'sort', 'full', 'more', 'add', 'wrong', 'correct', 'info', 'question', 'time', 'smiling', 'play', 'stop', 'location', 'load', 'crown', 'hot', 'press', 'slide', 'qrcode', 'picture', 'magic', 'plus', 'praise', 'favor', 'comment', 'down', 'left', 'right', 'check', 'close', 'music-on', 'music-off', 'volume', 'mute', 'voice', 'tag', 'round', 'scan']
     }
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
     width:100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     color: #666;
   }

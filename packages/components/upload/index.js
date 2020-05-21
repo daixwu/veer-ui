@@ -1,8 +1,14 @@
 import Upload from './upload.vue'
-import './upload.scss'
+import UploadBtn from './btn.vue'
+import UploadFile from './file.vue'
 
 Upload.install = (Vue) => {
   Vue.component(Upload.name, Upload)
+  Vue.component(UploadBtn.name, UploadBtn)
+  Vue.component(UploadFile.name, UploadFile)
 }
+
+Upload.Btn = UploadBtn
+Upload.File = UploadFile
 
 export default Upload

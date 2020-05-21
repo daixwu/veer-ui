@@ -8,6 +8,7 @@ import Radio from '../views/radio.vue'
 import RadioGroup from '../views/radio-group.vue'
 import Video from '../views/video.vue'
 import Flex from '../views/flex.vue'
+import Upload from '../views/upload.vue'
 
 Vue.use(VueRouter)
 
@@ -42,8 +43,12 @@ const routes = [
     component: Video
   },
   {
-    path: '/Flex',
+    path: '/flex',
     component: Flex
+  },
+  {
+    path: '/upload',
+    component: Upload
   }
   // {
   //   path: '/Button',
