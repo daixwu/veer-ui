@@ -53,3 +53,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.veer-flex {
+  display: flex;
+}
+</style>

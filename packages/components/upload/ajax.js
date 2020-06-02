@@ -27,7 +27,6 @@ export default function ajaxUpload(file, options, changeHandler) {
   file._xhr = xhr
   let progressTid = 0
 
-  // 上传进度实现方法
   if (xhr.upload) {
     let lastProgressTime = Date.now()
     xhr.upload.onprogress = function (e) {
@@ -36,7 +35,6 @@ export default function ajaxUpload(file, options, changeHandler) {
           clearTimeout(progressTid)
           const now = Date.now()
           const diff = now - lastProgressTime
-
           if (diff >= progressInterval) {
             computed()
           } else {
@@ -58,6 +56,7 @@ export default function ajaxUpload(file, options, changeHandler) {
 
   const formData = new window.FormData()
   const realData = evalOpts(data, file)
+
   Object.keys(realData).forEach((key) => {
     formData.append(key, realData[key])
   })

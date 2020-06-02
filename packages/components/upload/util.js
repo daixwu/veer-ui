@@ -1,6 +1,8 @@
-import { inBrowser } from '../../common/helpers/env'
+import { inBrowser, lowAndroid, IE8lte } from '../../common/helpers/env'
 
 export const URL = inBrowser ? window.URL || window.webkitURL || window.mozURL : null
+
+export const lowSystem = !!(lowAndroid || IE8lte)
 
 export const STATUS_READY = 'ready'
 export const STATUS_UPLOADING = 'uploading'

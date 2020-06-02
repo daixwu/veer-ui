@@ -11,6 +11,12 @@ export default {
   name: 'veer-${componentName}'
 }
 </script>
+
+<style scoped lang="scss">
+.veer-${componentName} {
+  background-color: #fff
+}
+</style>
 `
   },
   vueTsTemplate: (componentName) => {
@@ -28,37 +34,22 @@ export default class ${componentName} extends Vue {
   @Prop() private msg!: string;
 }
 </script>
+
+<style scoped lang="scss">
+.veer-${componentName} {
+  background-color: #fff
+}
+</style>
 `
   },
-  cssTemplate: (componentName) => {
-    return `.veer-${componentName} { background-color: #fff }`
-  },
   entryTemplate: (componentName, inputName) => {
-    console.log('inputName: ', inputName)
-
     return `import ${componentName} from './${inputName}.vue'
-import './${inputName}.scss'
 
 ${componentName}.install = (Vue) => {
   Vue.component(${componentName}.name, ${componentName})
 }
 
 export default ${componentName}
-`
-  },
-  storiesTemplate: (componentName, inputName) => {
-    return `import ${componentName} from '../${inputName}.vue'
-import '../${inputName}.scss'
-
-export const Default = () => ({
-  components: { ${componentName} },
-  template: '<${componentName}>默认</${componentName}>',
-})
-
-export default {
-  title: '基础组件 | ${componentName}',
-  component: ${componentName}
-}
 `
   },
   readmeTemplate: (componentName) => {

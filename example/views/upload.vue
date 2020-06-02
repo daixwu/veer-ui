@@ -19,7 +19,9 @@ import VeerPage from '../components/veer-page.vue'
 export default {
   data() {
     return {
-      action: '//jsonplaceholder.typicode.com/photos/',
+      action: {
+        target: '//jsonplaceholder.typicode.com/photos/'
+      },
       isUploading: true
     }
   },
@@ -60,17 +62,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.upload-view-def {
-    .content {
-      >
-        p, div {
-          margin: 20px 0;
+.upload-view {
+  .content {
+    >
+      p, div {
+        margin: 20px 0;
+      }
+      div {
+        .cube-btn, .cube-upload {
+          margin: 10px 0;
         }
-        div {
-          .cube-btn, .cube-upload {
-            margin: 10px 0;
-          }
-        }
-    }
+      }
+  }
+  button {
+    margin: 10px 0;
+  }
 }
 </style>

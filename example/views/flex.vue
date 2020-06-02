@@ -166,7 +166,6 @@
 
 <script>
 import VeerPage from '../components/veer-page.vue'
-import anime from 'animejs/lib/anime.es.js'
 export default {
   data() {
     return {
@@ -178,21 +177,6 @@ export default {
       content: [1, 2, 3, 4, 5, 6],
       content1: [1, 2, 3]
     }
-  },
-  methods: {
-    move() {
-      return anime({
-        targets: this.$refs.ball,
-        translateY: [0, 10],
-        duration: 800,
-        direction: 'alternate',
-        easing: 'linear',
-        loop: true
-      })
-    }
-  },
-  mounted() {
-    this.move()
   },
   components: {
     VeerPage

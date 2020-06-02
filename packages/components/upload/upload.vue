@@ -13,6 +13,7 @@
 import UploadBtn from './btn.vue'
 import UploadFile from './file.vue'
 import ajaxUpload from './ajax'
+import compressImg from './compress.js'
 import btnMixin from './btn-mixin'
 import {
   processFiles,
@@ -58,15 +59,18 @@ export default {
       type: Number,
       default: 1
     },
-    processFile: {
-      type: Function,
-      default: function (file, cb) {
-        cb(file)
-      }
+    compress: {
+      type: [Boolean, Object],
+      default: false
     }
   },
   data() {
     return {
+      baseCompress: {
+        width: 800,
+        height: 1600,
+        quality: 0.92
+      },
       files: this.value,
       paused: !this.auto
     }
@@ -82,6 +86,13 @@ export default {
         return action
       }
     },
+    compressOptions() {
+      let compress = this.compress
+      if (typeof compress === 'boolean') {
+        compress = {}
+      }
+      return Object.assign({}, this.baseCompress, compress)
+    },
     isShowBtn() {
       return this.files.length < this.max
     }
@@ -95,6 +106,15 @@ export default {
     }
   },
   methods: {
+    processFile(file, cb) {
+      if (this.compress) {
+        compressImg(file, {
+          compress: { ...this.compressOptions }
+        }, cb)
+      } else {
+        cb(file)
+      }
+    },
     addFiles(files) {
       this.$emit(EVENT_ADDED, files)
       const filesLen = this.files.length

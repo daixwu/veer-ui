@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 const { resolve, log, logInfo, successLog, errorLog, generateFile, dotExistDirectoryCreate, toUpperCase } = require('./utils')
-const { vueTemplate, vueTsTemplate, cssTemplate, entryTemplate, readmeTemplate } = require('./template')
+const { vueTemplate, vueTsTemplate, entryTemplate, readmeTemplate } = require('./template')
 
 const TARGET = process.env.npm_lifecycle_event
 
@@ -14,24 +14,15 @@ process.stdin.on('data', async (chunk) => {
   const componentDirectory = resolve('../packages/components', inputName)
   const entryFile = resolve(componentDirectory, 'index.js')
   const readmeFile = resolve(componentDirectory, 'doc.md')
-
-  // src 目录路径
-  // const srcDirectory = resolve('../packages/components', inputName, 'src')
   const vueFile = resolve(componentDirectory, `${inputName}.vue`)
-  const styleFile = resolve(componentDirectory, `${inputName}.scss`)
-
-  // stories 目录路径
-  // const storiesDirectory = resolve('../packages/components', inputName, 'stories')
 
   const hasComponentDirectory = fs.existsSync(componentDirectory)
   if (hasComponentDirectory) {
     errorLog(`${inputName}组件目录已存在，请重新输入`)
     return
   } else {
-    log(`正在生成 src 目录 ${componentDirectory}`)
+    log(`正在生成组件目录 ${componentDirectory}`)
     await dotExistDirectoryCreate(componentDirectory)
-    // log(`正在生成 stories 目录 ${storiesDirectory}`)
-    // await dotExistDirectoryCreate(storiesDirectory)
   }
   try {
     if (inputName.includes('-')) {
@@ -40,7 +31,6 @@ process.stdin.on('data', async (chunk) => {
     } else {
       componentName = toUpperCase(inputName)
     }
-    // const storiesFile = resolve(storiesDirectory, `${componentName}.stories.js`)
 
     log(`正在生成 vue 文件 ${vueFile}`)
     if (TARGET.indexOf('ts') !== -1) {
@@ -49,10 +39,6 @@ process.stdin.on('data', async (chunk) => {
       await generateFile(vueFile, vueTemplate(inputName))
     }
 
-    log(`正在生成 style 文件 ${styleFile}`)
-    await generateFile(styleFile, cssTemplate(inputName))
-    // log(`正在生成 stories 文件 ${storiesFile}`)
-    // await generateFile(storiesFile, storiesTemplate(componentName, inputName))
     log(`正在生成 entry 文件 ${entryFile}`)
     await generateFile(entryFile, entryTemplate(componentName, inputName))
     log(`正在生成 readmeFile 文件 ${readmeFile}`)

@@ -136,3 +136,59 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../common/style/variable.scss";
+@import "../../common/style/mixin.scss";
+
+.veer-input {
+  display: flex;
+  align-items: center;
+  font-size: $fontsize-medium;
+  line-height: 1.429;
+  background-color: inherit;
+  @include border-1px($input-border-color);
+}
+
+.veer-input-field {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  color: $input-color;
+  line-height: inherit;
+  background-color: inherit;
+  border-radius: 2px;
+  outline: none;
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+    text-overflow: ellipsis;
+  }
+}
+
+.veer-input_active {
+  &::after {
+    border-color: $input-focus-border-color;
+  }
+}
+
+.veer-input-prepend, .veer-input-append {
+  display: flex;
+  align-items: center;
+}
+
+.veer-input-clear {
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  padding: 10px;
+  box-sizing: content-box;
+  color: $input-clear-icon-color;
+  > i {
+    display: inline-block;
+    transform: scale(1.2);
+  }
+}
+</style>

@@ -36,3 +36,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.veer-flex-item {
+  box-sizing: border-box;
+  word-break: break-all;
+}
+
+</style>

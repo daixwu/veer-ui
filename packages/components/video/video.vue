@@ -192,6 +192,7 @@ export default {
   destroyed() {}
 }
 </script>
+
 <style lang="scss">
 .veer-video {
   width: 100%;
@@ -233,36 +234,23 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 66px;
-  height: 79px;
   transform: translate(-50%, -50%);
+  font-size: 3.5em;
   color: rgba(255, 255, 255, .8);
-  img {
-      width: 100%;
-  }
 }
 
 .veer-video-error {
   position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 111111;
   background: #000;
   color: #fff;
   text-align: center;
-  display: flex;
-  justify-content : center;
-  align-items : center;
   p{
-    color: #fff;
-    padding: 10px;
+      color: #fff;
   }
 }
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }

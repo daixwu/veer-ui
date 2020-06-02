@@ -3,7 +3,7 @@
     <header class="veer-bar">
       <h1>veer-ui</h1>
     </header>
-    <section class="cube-content" ref="mfct">
+    <section class="veer-content" ref="mfct">
       <router-link v-for="(item, index) in components" :key="index" :to="item.path">{{ item.name }}</router-link>
     </section>
     <veer-view></veer-view>
@@ -12,40 +12,12 @@
 
 <script>
 import VeerView from './components/veer-view.vue'
+import routes from './router/routes'
 
 export default {
   data() {
     return {
-      components: [
-        {
-          path: '/icon',
-          name: 'Icon'
-        },
-        {
-          path: '/button',
-          name: 'Button'
-        },
-        {
-          path: '/video',
-          name: 'Video'
-        },
-        {
-          path: '/input',
-          name: 'Input'
-        },
-        {
-          path: '/switch',
-          name: 'Switch'
-        },
-        {
-          path: '/flex',
-          name: 'Flex'
-        },
-        {
-          path: '/upload',
-          name: 'Upload'
-        }
-      ]
+      components: routes
     }
   },
   components: {
@@ -80,7 +52,7 @@ export default {
     font-weight: 500;
   }
 }
-.cube-content {
+.veer-content {
   position: absolute;
   top: 44px;
   left: 0;
